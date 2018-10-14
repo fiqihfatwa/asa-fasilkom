@@ -28,20 +28,20 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
-                    <a href="index.html">
+                <li <?php if($title=='Dashboard'){ echo 'class="active"'; }?>>
+                    <a href="<?php echo base_url()?>admin/dashboard">
                         <i class="material-icons">home</i>
                         <span>Beranda</span>
                     </a>
                 </li>
                 <!--- Untuk Pegawai --->
-                <li>
+                <li <?php if($title=='Log Pegawai'){ echo 'class="active"'; }?>>
                     <a href="<?php echo base_url() ?>admin/logpegawai">
                         <i class="material-icons">access_time</i>
                         <span>Log pegawai</span>
                     </a>
                 </li>
-                <li>
+                <li <?php if($title=='Data Pegawai'){ echo 'class="active"'; }?>>
                     <a href="<?php echo base_url() ?>admin/datapegawai">
                         <i class="material-icons">group</i>
                         <span>Data pegawai</span>
