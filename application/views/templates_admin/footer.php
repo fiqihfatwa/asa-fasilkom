@@ -1,12 +1,3 @@
-<footer class="content" style="background-color:white;height:30px;">
-  <div class="container-fluid">
-    <table width="100%">
-      <tr>
-        <td align="right"> <?php echo $this->config->item('app_name'); echo " ".$this->config->item('app_version');?></td>
-      </tr>
-    </table>
-  </div>
-</footer>
 <!-- Bootstrap Core Js -->
 <script src="<?php echo base_url()?>assets/plugins/bootstrap/js/bootstrap.js"></script>
 
@@ -39,12 +30,23 @@
 <!-- Sparkline Chart Plugin Js -->
 <script src="<?php echo base_url()?>assets/plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
+<!-- Jquery DataTable Plugin Js -->
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 <!-- Custom Js -->
 <script src="<?php echo base_url()?>assets/js/admin.js"></script>
 <script src="<?php echo base_url()?>assets/js/pages/index.js"></script>
 
 <!-- Demo Js -->
 <script src="<?php echo base_url()?>assets/js/demo.js"></script>
+
 </body>
 
 </html>

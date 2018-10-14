@@ -23,11 +23,11 @@ class Dashboard extends CI_Controller {
 		if($this->session->userdata('loggedIn')==TRUE){
 		$data['title'] = "Dashboard";
 
-		$this->load->view('templates_mahasiswa/header',$data);
-    $this->load->view('templates_mahasiswa/navbar');
-		$this->load->view('templates_mahasiswa/sidebar');
-		$this->load->view('mahasiswa/dashboard/index',$data);
-    $this->load->view('templates_mahasiswa/footer');
+		$this->load->view('templates_pegawai/header',$data);
+    $this->load->view('templates_pegawai/navbar');
+		$this->load->view('templates_pegawai/sidebar');
+		$this->load->view('pegawai/dashboard/index',$data);
+    $this->load->view('templates_pegawai/footer');
 		}else {
 			redirect(base_url());
 		}

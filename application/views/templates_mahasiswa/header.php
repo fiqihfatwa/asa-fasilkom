@@ -31,8 +31,24 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url()?>assets/css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- Dropzone Css -->
+    <link href="<?php echo base_url()?>assets/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Multi Select Css -->
+    <link href="<?php echo base_url()?>assets/plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- noUISlider Css -->
+    <link href="<?php echo base_url()?>assets/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="<?php echo base_url()?>assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="<?php echo base_url()?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Jquery Core Js -->
     <script src="<?php echo base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+
+    <script src="<?php echo base_url()?>assets/js/pages/tables/jquery-datatable.js"></script>
 
 </head>

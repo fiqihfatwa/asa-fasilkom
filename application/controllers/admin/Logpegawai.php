@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Logpegawai extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,17 +18,25 @@ class Dashboard extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 function __construct()
+ 	{
+ 		parent::__construct();
+ 		// Your own constructor code
+		$this->load->model('Admin_model','dbObject');
+	}
+
 	public function index()
 	{
 		if($this->session->userdata('loggedIn')==TRUE){
-		$data['title'] = "Dashboard";
+		$data['title'] = "Log Pegawai";
+		$data['log_pegawai'] = $this->dbObject->get_log_pegawai();
 
-		$this->load->view('templates_mahasiswa/header',$data);
-    $this->load->view('templates_mahasiswa/navbar');
-		$this->load->view('templates_mahasiswa/sidebar');
-		$this->load->view('mahasiswa/dashboard/index',$data);
-    $this->load->view('templates_mahasiswa/footer');
-		}else {
+		$this->load->view('templates_admin/header',$data);
+    $this->load->view('templates_admin/navbar');
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('admin/log_pegawai/index',$data);
+    $this->load->view('templates_admin/footer');
+		}else{
 			redirect(base_url());
 		}
 	}

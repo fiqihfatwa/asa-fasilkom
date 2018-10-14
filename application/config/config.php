@@ -37,7 +37,7 @@ $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -529,4 +529,6 @@ $config['proxy_ips'] = '';
 $config['app_name']='ASA';
 $config['app_version']='V.0.1.0';
 $config['app_status']='Beta';
+$config['app_years']='2018';
+$config['app_logo']='assets/images/icon.png';
 //--------------APP VERSION-------------------//

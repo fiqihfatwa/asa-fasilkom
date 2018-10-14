@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Akademik extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,12 +21,12 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('loggedIn')==TRUE){
-		$data['title'] = "Dashboard";
+		$data['title'] = "Akademik";
 
 		$this->load->view('templates_mahasiswa/header',$data);
     $this->load->view('templates_mahasiswa/navbar');
 		$this->load->view('templates_mahasiswa/sidebar');
-		$this->load->view('mahasiswa/dashboard/index',$data);
+		$this->load->view('mahasiswa/akademik/index',$data);
     $this->load->view('templates_mahasiswa/footer');
 		}else {
 			redirect(base_url());

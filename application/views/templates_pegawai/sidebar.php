@@ -4,11 +4,11 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="images/user.png" width="48" height="48" alt="User" />
+                <img src="<?php echo base_url()?>assets/images/user.png" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                <div class="email">john.doe@example.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nama')?></div>
+                <!-- <div class="email">john.doe@example.com</div> -->
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
@@ -29,29 +29,49 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
-                    <a href="index.html">
+                    <a href="<?php echo base_url()?>pegawai/dashboard">
                         <i class="material-icons">home</i>
                         <span>Beranda</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/typography.html">
+                    <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">mail</i>
-                        <span>Surat saya</span>
+                        <span>Permohonan surat</span>
                     </a>
-                </li>
+                    <ul class="ml-menu">
+                        <li>
+                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                              <i class="material-icons">label_outline</i>
+                              <span>Permintaan masuk</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                              <i class="material-icons">label_outline</i>
+                              <span>Dalam proses pembuatan</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                              <i class="material-icons">label_outline</i>
+                              <span>Selesai dibuat</span>
+                          </a>
+                        </li>
+                      </ul>
                 <li>
                     <a href="pages/typography.html">
-                        <i class="material-icons">location_city</i>
-                        <span>Akademik</span>
+                        <i class="material-icons">cast</i>
+                        <span>Surat Edaran</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="pages/typography.html">
                         <i class="material-icons">school</i>
                         <span>Kemahasiswaan</span>
                     </a>
-                </li>
+                </li> -->
+                <!--- Untuk Pegawai --->
                 <!-- <li>
                     <a href="pages/helper-classes.html">
                         <i class="material-icons">first_page</i>
@@ -375,6 +395,16 @@
             </ul>
         </div>
         <!-- #Menu -->
+        <!-- Footer -->
+           <div class="legal">
+               <div class="copyright">
+                   &copy; <?php echo $this->config->item('app_years')?> <a href="javascript:void(0);"><?php echo $this->config->item('app_name')?></a>.
+               </div>
+               <div class="version">
+                   <b>Version: </b> <?php echo $this->config->item('app_version')?>
+               </div>
+           </div>
+           <!-- #Footer -->
     </aside>
     <!-- #END# Left Sidebar -->
 </section>
