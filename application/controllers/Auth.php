@@ -65,7 +65,7 @@ class Auth extends CI_Controller {
 
 			//$adm = mysqli_query($koneksi,"select * from data_admin where username='$code' and password='$passcrypt'") or die(mysqli_error($koneksi));
 			$rows = $this->dbObject->checkUser($code,$passcrypt);
-
+			//var_dump($rows);die;
 			foreach($rows as $row){
 				$group_id=$row['group_id'];
 				$kon_id =$row['kon_id'];
@@ -98,14 +98,12 @@ class Auth extends CI_Controller {
 					if($group_id=='2'){
 					$rows2=$this->dbObject->checkDataPegawai($group_id,$kon_id);
 
-					foreach ($rows as $row){
-					//{
-					//$data = mysqli_fetch_array($peg);
-					//if($passcrypt == $dataPegawai['password']){
+					foreach ($rows2 as $row){
 						$pegawai = array(
 							'group_id'=> $row['group_id'],
 							'nama' => $row['username'],
 							'kon_id' => $row['kon_id'],
+							'bagian' => $row['bagian'],
 							'loggedIn' => TRUE
 						);
 					}
@@ -123,10 +121,10 @@ class Auth extends CI_Controller {
 					//foreach ($rows3 as $dataMahasiswa){
 					//if($this->cek_pass($pass, $dataMahasiswa['password'])){
 							//'login_token' => $code,
-					elseif($group_id=='3'){
-							$rows3 = $this->dbObject->checkDataMahasiswaDanUser($group_id,$kon_id);
+					if($group_id=='3'){
+							$rows3 = $this->dbObject->checkDataMahasiswaDanUser($code,$passcrypt);
 							//var_dump($rows3);die;
-							foreach ($rows3 as $row) {
+							foreach ($rows3 as $row){
 							$mahasiswa = array(
 							'nama'=> $row['nama_depan']." ".$row['nama_belakang'],
 							'group_id' => $row['group_id'],
@@ -134,9 +132,10 @@ class Auth extends CI_Controller {
 							'email' => $row['email'],
 							'kon_id' => $row['kon_id'],
 							'link_foto' => $row['link_foto'],
-							'loggedIn' => TRUE,
+							'loggedIn' => TRUE
 							);
 						}
+
 						$this->session->set_userdata($mahasiswa);
 						redirect('mahasiswa/dashboard');
 					}

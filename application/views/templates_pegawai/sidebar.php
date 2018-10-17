@@ -8,6 +8,7 @@
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nama')?></div>
+                <?php echo $this->session->userdata('bagian'); ?>
                 <!-- <div class="email">john.doe@example.com</div> -->
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -41,13 +42,13 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                          <a href="<?php echo base_url()?>pegawai/permintaan_surat_masuk">
                               <i class="material-icons">label_outline</i>
                               <span>Permintaan masuk</span>
                           </a>
                         </li>
                         <li>
-                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                          <a href="<?php echo base_url()?>pegawai/proses_pembuatan_surat">
                               <i class="material-icons">label_outline</i>
                               <span>Dalam proses pembuatan</span>
                           </a>

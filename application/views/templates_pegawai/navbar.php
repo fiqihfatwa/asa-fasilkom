@@ -47,7 +47,7 @@
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
+                            <span class="label-count"><?php echo $jumlah_permintaan_surat_masuk?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
@@ -59,10 +59,7 @@
                                                 <i class="material-icons">mail</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>12 Surat baru</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </p>
+                                                <h4><?php echo $jumlah_permintaan_surat_masuk?> Permintaan surat masuk</h4>
                                             </div>
                                         </a>
                                     </li>

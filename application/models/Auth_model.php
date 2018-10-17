@@ -34,7 +34,7 @@ class Auth_model extends CI_Model
 
   public function checkDataPegawai($group_id,$kon_id)
   {
-    $sql="SELECT u.*,p.* from users u, pegawai p where u.group_id='$group_id' and p.id_pegawai='$kon_id'";
+    $sql="SELECT u.*,p.* from users u, pegawai p where u.group_id='$group_id' and u.kon_id='$kon_id' and u.kon_id = p.id_pegawai";
     $query = $this->db->query($sql);
     return $query->result_array();
   }
