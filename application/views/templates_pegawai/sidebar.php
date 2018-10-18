@@ -54,7 +54,7 @@
                           </a>
                         </li>
                         <li>
-                          <a href="<?php echo base_url()?>pegawai/permohonan_surat">
+                          <a href="<?php echo base_url()?>pegawai/surat_selesai_dibuat">
                               <i class="material-icons">label_outline</i>
                               <span>Selesai dibuat</span>
                           </a>

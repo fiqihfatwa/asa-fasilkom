@@ -71,6 +71,19 @@ class Pegawai_model extends CI_Model
     return $query->result();
   }
 
+  public function status_surat_selesai()
+  {
+    $bagian = $this->session->userdata('bagian');
+    if($bagian=='Pegawai Kasub Akademik' or $bagian=='Pegawai Prodi'){
+      $terusan = 'Akademik';
+    }else{
+      $terusan = 'Kemahasiswaan';
+    }
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat where jenis_surat.terusan='$terusan' and status_surat='selesai' group by isi_surat.id_isi order by tanggal_keluar desc";
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
   public function cek_no_resi($no_resi){
     $sql= "SELECT * from isi_surat where resi='$no_resi'";
     $query=$this->db->query($sql);
@@ -88,6 +101,13 @@ class Pegawai_model extends CI_Model
     );
     $this->db->where('id_isi',$id);
     return  $this->db->update('isi_surat',$data);
+  }
+
+  public function get_proses_surat_selesai($id)
+  {
+    $sql = "SELECT proses, selesai from notif_surat_mahasiswa where id_surat='$id' and proses='Y' and selesai='Y'";
+    $query = $this->db->query($sql);
+    return $query->num_rows();
   }
 
 }
