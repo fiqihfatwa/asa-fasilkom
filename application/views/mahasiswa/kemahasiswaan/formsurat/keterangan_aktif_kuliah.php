@@ -16,7 +16,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <div class="form-line">
-                            <input type="<?php echo $form->type ?>" name="<?php echo $form->name ?>" class="form-control" placeholder="<?php echo $form->placeholder ?>">
+                            <input id="<?php echo $form->name ?>" type="<?php echo $form->type ?>" name="<?php echo $form->name ?>" class="form-control" placeholder="<?php echo $form->placeholder ?>" required>
                           </div>
                         </div>
                       </div>

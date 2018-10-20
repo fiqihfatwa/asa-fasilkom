@@ -45,6 +45,13 @@ $(document).ready(function(){
       data:"id_jenis="+id_jenis,
       success:function(data){
         $('#form_surat').html(data);
+        $('#ipk').removeAttr('required');
+        $('#tglLahir').datepicker({
+          format:'yyyy-mm-dd'
+        });
+        $('#tglLahir').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
+        $('#hp').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
+        $('#ThnMsk').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
       }
     });
   });
