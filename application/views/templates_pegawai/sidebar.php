@@ -8,7 +8,7 @@
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nama')?></div>
-                <?php echo $this->session->userdata('bagian'); ?>
+                  <div class="name"><?php echo $this->session->userdata('bagian'); ?></div>
                 <!-- <div class="email">john.doe@example.com</div> -->
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -61,7 +61,7 @@
                         </li>
                       </ul>
                 <li>
-                    <a href="pages/typography.html">
+                    <a href="<?php echo base_url()?>pegawai/surat_edaran">
                         <i class="material-icons">cast</i>
                         <span>Surat Edaran</span>
                     </a>

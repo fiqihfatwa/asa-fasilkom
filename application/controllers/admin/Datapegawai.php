@@ -23,6 +23,9 @@ class Datapegawai extends CI_Controller {
  		parent::__construct();
  		// Your own constructor code
 		$this->load->model('Admin_model','dbObject');
+		if($this->session->userdata('group_id')!='1'&&$this->session->userdata('loggedIn')!=TRUE){
+			redirect(base_url("auth/logout"));
+		}
 	}
 
 	public function index()

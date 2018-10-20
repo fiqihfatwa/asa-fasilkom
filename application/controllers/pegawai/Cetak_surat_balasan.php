@@ -23,6 +23,13 @@ class Cetak_surat_balasan extends CI_Controller {
 		parent::__construct();
 		// Your own constructor code
 		$this->load->model('Pegawai_model','dbObject');
+		if($this->session->userdata('group_id')!='2'&&$this->session->userdata('loggedIn')!=TRUE){
+			redirect(base_url("auth/logout"));
+		}
+		// if($this->session->userdata('loggedIn')==TRUE){
+		// }else {
+		// 	redirect(base_url());
+		// }
 	}
 
 	public function index()

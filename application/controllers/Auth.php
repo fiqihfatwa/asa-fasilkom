@@ -132,6 +132,7 @@ class Auth extends CI_Controller {
 							'email' => $row['email'],
 							'kon_id' => $row['kon_id'],
 							'link_foto' => $row['link_foto'],
+							'prodi' => $row['program_studi'],
 							'loggedIn' => TRUE
 							);
 						}

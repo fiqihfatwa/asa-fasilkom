@@ -7,7 +7,7 @@
                 <img src="<?php echo $this->session->userdata('link_foto')?>" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nama')?></div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nama')?>  (<?php echo $this->session->userdata('nim')?>)</div>
                 <div class="email"><?php echo $this->session->userdata('email')?></div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -34,8 +34,8 @@
                         <span>Beranda</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/typography.html">
+                <li <?php if($title=='Surat saya'){ echo 'class="active"';}?>>
+                    <a href="<?php echo base_url()?>mahasiswa/surat_saya">
                         <i class="material-icons">mail</i>
                         <span>Surat saya</span>
                     </a>
@@ -46,8 +46,8 @@
                         <span>Akademik</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/typography.html">
+                  <li <?php if($title=='Kemahasiswaan'){ echo 'class="active"';}?>>
+                    <a href="<?php echo base_url()?>mahasiswa/kemahasiswaan">
                         <i class="material-icons">school</i>
                         <span>Kemahasiswaan</span>
                     </a>

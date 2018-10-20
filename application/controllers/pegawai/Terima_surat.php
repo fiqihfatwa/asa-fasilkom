@@ -23,6 +23,9 @@ class Terima_surat extends CI_Controller {
 		parent::__construct();
 		// Your own constructor code
 		$this->load->model('Pegawai_model','dbObject');
+		if($this->session->userdata('group_id')!='2'&&$this->session->userdata('loggedIn')!=TRUE){
+			redirect(base_url("auth/logout"));
+		}
 	}
 
 	public function index()

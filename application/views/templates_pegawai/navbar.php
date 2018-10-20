@@ -36,7 +36,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html"><?php echo $this->config->item('app_name')." ".$this->config->item('app_version') ?></a>
+                <a class="navbar-brand" href="index.html"><img src="<?php echo base_url().$this->config->item('app_logo')?>" width=20%>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -133,6 +133,7 @@
                                         <a href="javascript:void(0);">
                                             <h4>
                                                 Answer GitHub questions
+                                              </li>
                                                 <small>92%</small>
                                             </h4>
                                             <div class="progress">
@@ -140,7 +141,6 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </li>
                                 </ul>
                             </li> -->
                             <!-- <li class="footer">

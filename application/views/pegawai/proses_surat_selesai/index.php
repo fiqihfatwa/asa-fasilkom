@@ -71,7 +71,7 @@
                                     if($ceks == 0)
                                    {
                                     echo "<button class='btn btn-md btn-primary notif'>
-                                        <input type='hidden' value='$id' class='id-isi ubah-kirim'>Kirim Pemberitahuan</button>";
+                                        <input type='hidden' value='$id' class='id-isi ubah-kirim-$id'>Kirim Pemberitahuan</button>";
                                     }
                                     else
                                     {
@@ -107,81 +107,19 @@
     </div>
 </section>
 
-<div class="modal fade modal-1" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Kelengkapan Berkas</h4>
-                </div>
-                <div class="modal-body modal-1-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade modal-2" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                   <h4 class="modal-title">Alasan Penolakan</h4>
-                </div>
-                <div class="modal-body">
-                        <form action="<?php echo base_url()?>pegawai/tolak_surat" method="post">
-                          <input type="hidden" name="id_isi" value="" class="id-hapus">
-                            <textarea class="form-control" name="tolak"></textarea><br>
-                            <button type="submit" class="btn btn primary"> Submit </button>
-                          </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <script>
-
-  $('.muncul-modal').on('click',function(){
-      var id_isi = $(this).find('.id_isi').val();
-      var nim  = $(this).find('.nim').val();
-      $.post("<?php echo base_url()?>pegawai/cek_kelengkapan_berkas",{nim:nim, id_isi:id_isi}, function(data){
-        $('.modal-1-body').empty();
-        jQuery.each(data, function(i, val){
-          if(val.type=='file'){
-            var url = "<?php echo base_url()?>berkas_mahasiswa/document/"+val.isi+val.type[0].replace("f","");
-            $('.modal-1-body').append(val.form+" : <a href='"+url+"' target='_blank'>lihat</a><br>");
-          }else{
-            $('.modal-1-body').append(val.form+" : "+val.isi+"<br>");
-          }
-
-        });
-         $('.modal-1').modal("show");
-      });
-
-  });
-
-$('.modal-tolak').on('click',function(){
-  var id_isi = $(this).find('.id_isi').val();
-  $('.id-hapus').prop("value",id_isi);
-  $('.modal-2').modal("show");
-});
-
-
 $('.notif').on('click',function(){
   var id = $(this).find('.id-isi').val();
-  var url = "notif_surat_selesai.php?id="+id;
+  var url = "Surat_selesai_dibuat/notif_surat_selesai?id="+id;
 
   $.post(url,function(data){
     if(data==1){
-      alert('Pemberitahun Terkirim!')
+      alert('Pemberitahun Terkirim!');
+      $('.ubah-kirim'+id).empty();
+      $('.ubah-kirim'+id).append("Terkirim");
+      location.reload();
     }else{
+      location.reload();
       alert(data);
     }
   })

@@ -18,6 +18,16 @@ class Dashboard extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 function __construct()
+ 	{
+ 		parent::__construct();
+ 		// Your own constructor code
+		$this->load->model('Admin_model','dbObject');
+		if($this->session->userdata('group_id')!='3'&&$this->session->userdata('loggedIn')!=TRUE){
+			redirect(base_url("auth/logout"));
+		}
+	}
+
 	public function index()
 	{
 		if($this->session->userdata('loggedIn')==TRUE){

@@ -19,12 +19,14 @@ class Logpegawai extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	 function __construct()
- 	{
- 		parent::__construct();
- 		// Your own constructor code
-		$this->load->model('Admin_model','dbObject');
-	}
-
+	 {
+	  parent::__construct();
+	  // Your own constructor code
+	  $this->load->model('Admin_model','dbObject');
+	  if($this->session->userdata('group_id')!='1'&&$this->session->userdata('loggedIn')!=TRUE){
+	 	 redirect(base_url("auth/logout"));
+	  }
+	 }
 	public function index()
 	{
 		if($this->session->userdata('loggedIn')==TRUE){

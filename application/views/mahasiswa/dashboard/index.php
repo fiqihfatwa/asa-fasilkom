@@ -12,8 +12,8 @@
                         <i class="material-icons">mail</i>
                     </div>
                     <div class="content">
-                        <div class="text">Jumlah surat</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                        <div class="text">Surat saya</div>
+                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">123</div>
                     </div>
                 </div>
             </div>

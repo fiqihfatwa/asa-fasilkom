@@ -23,6 +23,9 @@ class Surat_selesai_dibuat extends CI_Controller {
  		parent::__construct();
  		// Your own constructor code
 		$this->load->model('Pegawai_model','dbObject');
+		if($this->session->userdata('group_id')!='2'&&$this->session->userdata('loggedIn')!=TRUE){
+			redirect(base_url("auth/logout"));
+		}
 	}
 
 	public function index()
@@ -43,6 +46,31 @@ class Surat_selesai_dibuat extends CI_Controller {
 	}else {
 		redirect(base_url());
 		}
+	}
+
+	public function notif_surat_selesai()
+	{
+		if($this->session->userdata('loggedIn')==TRUE){
+			$id = $_GET['id'];
+			$isi = "Surat Kamu sudah selesai!";
+			$read = 'N';
+			$proses = 'Y';
+			$selesai = 'Y';
+
+			$dataForm = array(
+				'isi_notif' => $isi,
+				'id_surat' => $id,
+				'dibaca' => $read,
+				'proses' => $proses,
+				'selesai'=> $selesai
+			);
+
+			$notif = $this->dbObject->insertNotif($dataForm);
+
+			echo "Notifikasi Terkirim";
+		}else {
+			redirect(base_url());
+			}
 	}
 
 }
