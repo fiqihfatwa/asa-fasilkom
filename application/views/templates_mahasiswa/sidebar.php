@@ -40,12 +40,12 @@
                         <span>Surat saya</span>
                     </a>
                 </li>
-                <li <?php if($title=='Akademik'){ echo 'class="active"';}?>>
+                <!-- <li <?php if($title=='Akademik'){ echo 'class="active"';}?>>
                     <a href="<?php echo base_url()?>mahasiswa/akademik">
                         <i class="material-icons">location_city</i>
                         <span>Akademik</span>
                     </a>
-                </li>
+                </li> -->
                   <li <?php if($title=='Kemahasiswaan'){ echo 'class="active"';}?>>
                     <a href="<?php echo base_url()?>mahasiswa/kemahasiswaan">
                         <i class="material-icons">school</i>

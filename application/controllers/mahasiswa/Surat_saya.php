@@ -22,7 +22,7 @@ class Surat_saya extends CI_Controller {
 	 {
 	  parent::__construct();
 	  // Your own constructor code
-	  $this->load->model('Admin_model','dbObject');
+	  $this->load->model('Mahasiswa_model','dbObject');
 	  if($this->session->userdata('group_id')!='3'&&$this->session->userdata('loggedIn')!=TRUE){
 	 	 redirect(base_url("auth/logout"));
 	  }
@@ -32,9 +32,15 @@ class Surat_saya extends CI_Controller {
 	{
 		if($this->session->userdata('loggedIn')==TRUE){
 		$data['title'] = "Surat saya";
+		$data['surat_saya']=$this->dbObject->surat_saya();
+		$data['jumlah_surat'] = count($this->dbObject->surat_saya());
+		$data['surat_ditolak'] = count($this->dbObject->surat_ditolak());
+		$data['surat_selesai'] = count($this->dbObject->surat_selesai());
+		$data['surat_onprosess'] = count($this->dbObject->surat_onprosess());
+		$data['surat_pending'] = count($this->dbObject->surat_pending());
 
 		$this->load->view('templates_mahasiswa/header',$data);
-    $this->load->view('templates_mahasiswa/navbar');
+    $this->load->view('templates_mahasiswa/navbar',$data);
 		$this->load->view('templates_mahasiswa/sidebar');
 		$this->load->view('mahasiswa/surat_saya/index',$data);
     $this->load->view('templates_mahasiswa/footer');

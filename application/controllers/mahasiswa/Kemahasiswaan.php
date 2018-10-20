@@ -35,9 +35,14 @@ class Kemahasiswaan extends CI_Controller {
 		$terusan = $this->uri->segment(2);
 
 		$data['jenis_surat'] = $this->dbObject->get_jenis_surat($terusan);
+		$data['jumlah_surat'] = count($this->dbObject->surat_saya());
+		$data['surat_ditolak'] = count($this->dbObject->surat_ditolak());
+		$data['surat_selesai'] = count($this->dbObject->surat_selesai());
+		$data['surat_onprosess'] = count($this->dbObject->surat_onprosess());
+		$data['surat_pending'] = count($this->dbObject->surat_pending());
 
 		$this->load->view('templates_mahasiswa/header',$data);
-    $this->load->view('templates_mahasiswa/navbar');
+    $this->load->view('templates_mahasiswa/navbar',$data);
 		$this->load->view('templates_mahasiswa/sidebar');
 		$this->load->view('mahasiswa/kemahasiswaan/index',$data);
     $this->load->view('templates_mahasiswa/footer');

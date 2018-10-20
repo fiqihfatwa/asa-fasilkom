@@ -47,7 +47,7 @@
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
+                            <span class="label-count"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
@@ -59,10 +59,37 @@
                                                 <i class="material-icons">mail</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>12 Surat baru</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </p>
+                                                <h4><?php echo $surat_selesai ?> Surat selesai</h4>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-orange">
+                                                <i class="material-icons">mail</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><?php echo $surat_pending ?> Surat pending</h4>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-red">
+                                                <i class="material-icons">mail</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><?php echo $surat_ditolak ?> Surat ditolak</h4>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-blue">
+                                                <i class="material-icons">mail</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><?php echo $surat_onprosess ?> Surat On prosess</h4>
                                             </div>
                                         </a>
                                     </li>

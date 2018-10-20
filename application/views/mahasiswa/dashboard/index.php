@@ -13,7 +13,7 @@
                     </div>
                     <div class="content">
                         <div class="text">Surat saya</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">123</div>
+                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"><?php echo $jumlah_surat;?></div>
                     </div>
                 </div>
             </div>

@@ -154,7 +154,7 @@
         $('.modal-1-body').empty();
         jQuery.each(data, function(i, val){
           if(val.type=='file'){
-            var url = "<?php echo base_url()?>berkas_mahasiswa/document/"+val.isi+val.type[0].replace("f","");
+            var url = "<?php echo base_url()?>berkas_mahasiswa/documenta/"+val.isi+val.type[0].replace("f","");
             $('.modal-1-body').append(val.form+" : <a href='"+url+"' target='_blank'>lihat</a><br>");
           }else{
             $('.modal-1-body').append(val.form+" : "+val.isi+"<br>");
