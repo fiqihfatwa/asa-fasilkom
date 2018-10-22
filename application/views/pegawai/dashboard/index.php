@@ -24,7 +24,7 @@
                         </div>
                         <div class="content">
                             <div class="text">Dalam Proses</div>
-                            <div class="number">20</div>
+                            <div class="number"><?php echo $jumlah_surat_on_process?></div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="content">
                             <div class="text">Surat Selesai</div>
-                            <div class="number">25</div>
+                            <div class="number"><?php echo $jumlah_surat_selesai?></div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="content">
                             <div class="text">Penolakan Surat</div>
-                            <div class="number">62</div>
+                            <div class="number"><?php echo $jumlah_surat_ditolak?></div>
                         </div>
                     </div>
                 </div>
@@ -112,4 +112,107 @@
         <!-- #END# CPU Usage -->
         </div>
     </div>
+    <div class="row clearfix">
+    <!-- Visitors -->
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+            <div class="body bg-pink">
+                <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
+                     data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
+                     data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
+                     data-fill-Color="rgba(0, 188, 212, 0)">
+                    Arus Persuratan Mingguan
+                </div>
+                <ul class="dashboard-stat-list">
+                    <li>
+                        Permintaan Surat Masuk
+                        <span class="pull-right"><b><?php echo $jumlah_permintaan_surat_masuk_mingguan?></b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat yang diproses
+                        <span class="pull-right"><b><?php echo $jumlah_surat_on_process_mingguan?></b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat Selesai Dibuat
+                        <span class="pull-right"><b>10</b> <small>mahasiswa</small></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Visitors -->
+    <!-- Latest Social Trends -->
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+            <div class="body bg-cyan">
+                <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
+                     data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
+                     data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
+                     data-fill-Color="rgba(0, 188, 212, 0)">
+                    Arus Persuratan Bulanan
+                </div>
+                <ul class="dashboard-stat-list">
+                    <li>
+                        Permintaan Surat Masuk
+                        <span class="pull-right"><b>20</b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat yang diproses
+                        <span class="pull-right"><b>30</b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat Selesai Dibuat
+                        <span class="pull-right"><b>40</b> <small>mahasiswa</small></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Latest Social Trends -->
+    <!-- Answered Tickets -->
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+            <div class="body bg-teal">
+                <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
+                     data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
+                     data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
+                     data-fill-Color="rgba(0, 188, 212, 0)">
+                    Arus Persuratan Persemester
+                </div>
+                <ul class="dashboard-stat-list">
+                    <li>
+                        Permintaan Surat Masuk
+                        <span class="pull-right"><b>3</b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat yang diproses
+                        <span class="pull-right"><b>10</b> <small>mahasiswa</small></span>
+                    </li>
+                    <li>
+                        Surat Selesai Dibuat
+                        <span class="pull-right"><b>204</b> <small>mahasiswa</small></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Answered Tickets -->
+</div>
+</div>
+
+<?php
+// $date = date('Y-m-d');
+// $firstDate = date('Y-m-d',strtotime("monday this week"));
+// $lastDate = date('Y-m-d',strtotime("sunday this week"));
+// $firstMonth = date('Y-m',strtotime("january this year"));
+//
+// echo "today :".$date;
+// echo "<br>";
+// echo "fisrtday :".$firstDate;
+// echo "<br>";
+// echo "lastday :".$lastDate;
+// echo "<br>";
+// echo "firstMonth :".$firstMonth;
+
+ ?>
 </section>

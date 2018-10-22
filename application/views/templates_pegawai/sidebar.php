@@ -60,12 +60,12 @@
                           </a>
                         </li>
                       </ul>
-                <li>
+                <!-- <li>
                     <a href="<?php echo base_url()?>pegawai/surat_edaran">
                         <i class="material-icons">cast</i>
                         <span>Surat Edaran</span>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li>
                     <a href="pages/typography.html">
                         <i class="material-icons">school</i>

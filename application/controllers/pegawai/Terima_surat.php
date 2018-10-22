@@ -43,6 +43,8 @@ class Terima_surat extends CI_Controller {
 
 				foreach ($cek_surat as $dat) {
 				$isi_log = $nama_pegawai.' telah memeroses '.$dat['jenis_surat'].' milik '.$dat['nama_depan'].' '.$dat['nama_belakang'];
+				$nama_surat = $dat['jenis_surat'].' milik '.$dat['nama_depan'].' '.$dat['nama_belakang'];
+				$id_jenis = $dat['id_jenis'];
 				}
 
 				//$sql = mysqli_query($koneksi,"") or die(mysqli_error($koneksi));
@@ -53,16 +55,21 @@ class Terima_surat extends CI_Controller {
 					'selesai' => $selesai,
 					'dibaca' => $read
 					);
+
+					$dataBalasan = array(
+						'nama_surat' => $nama_surat,
+						'id_jenis' => $id_jenis
+					);
 				//insert into (isi_notif, id_surat, alasan, proses, selesai, dibaca) VALUES ('$isi','$id','$alasan','$proses','$selesai','$read')
 				$sql = $this->dbObject->updateIsiSuratDiterima($id);
 				$notif = $this->dbObject->insertNotif($dataForm);
 				$log = $this->dbObject->insertLogPegawai($isi_log);
-
+				$balasan = $this->dbObject->insertBalasan($dataBalasan);
 				//var_dump($notif);die;
 
 				if($sql)
 				{
-					echo"<script>alert('Surat segera di proses!');document.location='<?php echo base_url()?>/pegawai/permintaan_surat_masuk';</script>";
+					echo"<script>alert('Surat segera di proses!');document.location='permintaan_surat_masuk';</script>";
 				}
 				else
 				{

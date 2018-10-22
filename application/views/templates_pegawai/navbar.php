@@ -36,7 +36,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html"><img src="<?php echo base_url().$this->config->item('app_logo')?>" width=20%>
+                <a class="navbar-brand" href="dashboard"><img src="<?php echo base_url().$this->config->item('app_logo')?>" width=20%>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -54,7 +54,7 @@
                             <li class="body">
                                 <ul class="menu">
                                     <li>
-                                        <a href="javascript:void(0);">
+                                        <a href="<?php echo base_url()?>pegawai/permintaan_surat_masuk">
                                             <div class="icon-circle bg-light-green">
                                                 <i class="material-icons">mail</i>
                                             </div>

@@ -33,6 +33,11 @@ class Pegawai_model extends CI_Model
     return $query->result_array();
   }
 
+  public function insertBalasan($dataBalasan)
+  {
+    $sql = $this->db->insert('surat_balasan',$dataBalasan);
+  }
+
   public function updateIsiSurat($id){
     $data = array('status_surat'=> 'ditolak');
     $this->db->where('id_isi',$id);
@@ -66,7 +71,34 @@ class Pegawai_model extends CI_Model
     }else{
       $terusan = 'Kemahasiswaan';
     }
+    //$sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat where jenis_surat.terusan='$terusan' and status_surat='on process' group by isi_surat.id_isi order by tanggal_masuk desc";
     $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat inner join surat_balasan on surat_balasan.id_jenis=jenis_surat.id_jenis where jenis_surat.terusan='$terusan' and status_surat='on process' group by isi_surat.id_isi order by tanggal_masuk desc";
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
+  public function status_surat_on_pending()
+  {
+    $bagian = $this->session->userdata('bagian');
+    if($bagian=='Pegawai Kasub Akademik' or $bagian=='Pegawai Prodi'){
+      $terusan = 'Akademik';
+    }else{
+      $terusan = 'Kemahasiswaan';
+    }
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat inner join surat_balasan on surat_balasan.id_jenis=jenis_surat.id_jenis where jenis_surat.terusan='$terusan' and status_surat='Pending' group by isi_surat.id_isi order by tanggal_masuk desc";
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
+  public function status_surat_ditolak()
+  {
+    $bagian = $this->session->userdata('bagian');
+    if($bagian=='Pegawai Kasub Akademik' or $bagian=='Pegawai Prodi'){
+      $terusan = 'Akademik';
+    }else{
+      $terusan = 'Kemahasiswaan';
+    }
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat inner join surat_balasan on surat_balasan.id_jenis=jenis_surat.id_jenis where jenis_surat.terusan='$terusan' and status_surat='Ditolak' group by isi_surat.id_isi order by tanggal_masuk desc";
     $query=$this->db->query($sql);
     return $query->result();
   }
@@ -79,7 +111,7 @@ class Pegawai_model extends CI_Model
     }else{
       $terusan = 'Kemahasiswaan';
     }
-    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat where jenis_surat.terusan='$terusan' and status_surat='selesai' group by isi_surat.id_isi order by tanggal_keluar desc";
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat where jenis_surat.terusan='$terusan' and status_surat='Selesai' group by isi_surat.id_isi order by tanggal_keluar desc";
     $query=$this->db->query($sql);
     return $query->result();
   }
@@ -109,6 +141,51 @@ class Pegawai_model extends CI_Model
     $query = $this->db->query($sql);
     return $query->num_rows();
   }
+
+  public function status_surat_pending_weekly()
+  {
+    $bagian = $this->session->userdata('bagian');
+    if($bagian=='Pegawai Kasub Akademik' or $bagian=='Pegawai Prodi'){
+      $terusan = 'Akademik';
+    }else{
+      $terusan = 'Kemahasiswaan';
+    }
+    $date = date('Y-m-d');
+    $firstDate = date('Y-m-d',strtotime("monday this week"));
+    $lastDate = date('Y-m-d',strtotime("sunday this week"));
+
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi AND DATE_FORMAT(isi_surat.tanggal_masuk,'%Y-%m-%d')>='$firstDate'
+    AND DATE_FORMAT(isi_surat.tanggal_masuk,'%Y-%m-%d')<='$lastDate'
+    join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat inner join surat_balasan
+    on surat_balasan.id_jenis=jenis_surat.id_jenis where jenis_surat.terusan='$terusan'
+    and status_surat='Pending' group by isi_surat.id_isi order by tanggal_masuk desc";
+
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
+  public function status_surat_on_process_weekly()
+  {
+    $bagian = $this->session->userdata('bagian');
+    if($bagian=='Pegawai Kasub Akademik' or $bagian=='Pegawai Prodi'){
+      $terusan = 'Akademik';
+    }else{
+      $terusan = 'Kemahasiswaan';
+    }
+    $date = date('Y-m-d');
+    $firstDate = date('Y-m-d',strtotime("monday this week"));
+    $lastDate = date('Y-m-d',strtotime("sunday this week"));
+
+    $sql="SELECT * from detail_surat join isi_surat on isi_surat.id_isi=detail_surat.id_isi AND DATE_FORMAT(isi_surat.tanggal_proses,'%Y-%m-%d')>='$firstDate'
+    AND DATE_FORMAT(isi_surat.tanggal_proses,'%Y-%m-%d')<='$lastDate'
+    join jenis_surat on jenis_surat.id_jenis= isi_surat.id_jenis join surat on surat.id_surat = detail_surat.id_surat inner join surat_balasan
+    on surat_balasan.id_jenis=jenis_surat.id_jenis where jenis_surat.terusan='$terusan'
+    and status_surat='on process' group by isi_surat.id_isi order by tanggal_masuk desc";
+
+    $query=$this->db->query($sql);
+    return $query->result();
+  }
+
 
 }
 ?>
