@@ -66,7 +66,7 @@
                             <td>
                               <center>
                               <a href="<?php echo base_url()?>pegawai/cetak_surat_permohonan?id=<?php echo $row->id_isi?>&id_jenis=<?php echo $row->id_jenis?>"  target="_blank" rel="nofollow"><button class="btn btn-success">Cetak Surat Permohonan</button></a><br>
-                              <?php if ($row->id_jenis != 21 AND $row->id_jenis != 22 AND $row->id_jenis != 23 AND $row->id_jenis != 5 AND $row->id_jenis  != 2) {?>
+                              <?php if ($row->id_jenis != 21 AND $row->id_jenis != 22 AND $row->id_jenis != 23 AND $row->id_jenis != 5 ) {?>
                                 <br>
                                 <a href="<?php echo base_url()?>pegawai/cetak_surat_balasan?id=<?php echo $row->id_isi?>&id_jenis=<?php echo $row->id_jenis?>&id_balasan=<?php echo $row->id_balasan?>"  target="_blank" rel="nofollow"><button class="btn btn-warning"> Cetak Surat Balasan</button></a>
                               <?php } else {?>
