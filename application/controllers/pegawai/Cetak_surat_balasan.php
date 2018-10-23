@@ -50,8 +50,9 @@ class Cetak_surat_balasan extends CI_Controller {
 	public function cetak_keterangan_surat_aktif_kuliah($ids)
 	{
 		if($this->session->userdata('loggedIn')==TRUE){
+			$data['title']='Surat Tanda Aktif Kuliah';
 			$data['detail_surat']=$this->dbObject->check_kelengkapan_berkas($ids);
-			$this->load->view('pegawai/cetak/cetak-surat-aktif-kuliah',$data);
+			$this->load->view('pegawai/balasan/cetak-surat-aktif-kuliah',$data);
 		}else {
 			redirect(base_url());
 		}

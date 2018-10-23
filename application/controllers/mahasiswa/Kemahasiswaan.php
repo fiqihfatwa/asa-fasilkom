@@ -99,6 +99,12 @@ class Kemahasiswaan extends CI_Controller {
 						$ktm_folder = "berkas_mahasiswa/documents/$param[14]";
 						move_uploaded_file($save_ktm,$ktm_folder);
 
+						$param[15]=$_POST['nama_ortu'];
+						$param[16]=$_POST['alamat_ortu'];
+						$param[17]=$_POST['j_studi'];
+						$param[18]=$_POST['dept'];
+						$param[19]=$_POST['prodi'];
+
 						date_default_timezone_set('Asia/Jakarta');
 						$date = date("Y-m-d");
 						$nim = $this->session->userdata('nim');
