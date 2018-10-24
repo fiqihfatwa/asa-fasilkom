@@ -52,6 +52,11 @@ $(document).ready(function(){
         $('#tglLahir').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
         $('#hp').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
         $('#ThnMsk').attr("oninput","this.value=this.value.replace(/[^0-9]/g,'')");
+        $('#nip').removeAttr('required');
+        $('#pangkat').removeAttr('required');
+        $('#golongan').removeAttr('required');
+        $('#jabatan').removeAttr('required');
+        $('#instansi').removeAttr('required');
       }
     });
   });

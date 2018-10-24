@@ -40,6 +40,8 @@ class Cetak_surat_balasan extends CI_Controller {
 			if($id_jenis==1)
 			{
 				$this->cetak_keterangan_surat_aktif_kuliah($ids);
+			}elseif ($id_jenis==2) {
+				$this->cetak_surat_pernyataan_masih_kuliah($ids);
 			}
 
 	}else{
@@ -53,6 +55,17 @@ class Cetak_surat_balasan extends CI_Controller {
 			$data['title']='Surat Tanda Aktif Kuliah';
 			$data['detail_surat']=$this->dbObject->check_kelengkapan_berkas($ids);
 			$this->load->view('pegawai/balasan/cetak-surat-aktif-kuliah',$data);
+		}else {
+			redirect(base_url());
+		}
+	}
+
+	public function cetak_surat_pernyataan_masih_kuliah($ids)
+	{
+		if($this->session->userdata('loggedIn')==TRUE){
+			$data['title']='Surat pernyataan masih kuliah';
+			$data['detail_surat']=$this->dbObject->check_kelengkapan_berkas($ids);
+			$this->load->view('pegawai/balasan/surat_pernyataan_masih_kuliah',$data);
 		}else {
 			redirect(base_url());
 		}
